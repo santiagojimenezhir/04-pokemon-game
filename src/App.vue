@@ -1,17 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <PokemonPage />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { defineAsyncComponent } from "vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    PokemonPage: defineAsyncComponent(() =>
+      import(/*webpackChunkName:"PokemonPage" */ "@/pages/PokemonPage.vue")
+    ),
+  },
+};
 </script>
 
 <style>
